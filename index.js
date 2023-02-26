@@ -38,7 +38,7 @@ app.post('/upload', upload.array('photos'), function(req, res) {
     // const newPath = path.join(dir, file.originalname);
     return fs.promises.rename(oldPath, newPath);
   });
-  console.log(promises);
+  console.log(req.files[0]);
   Promise.all(promises).then(() => {
     console.log(`Name: ${name}, Surname: ${surname}, Email: ${email}, Phone: ${phone}`);
     res.send('Files uploaded successfully');
