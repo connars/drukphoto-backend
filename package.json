@@ -8,5 +8,23 @@
     "path": "^0.12.7",
     "sharp": "^0.31.3",
     "uuid": "^9.0.0"
-  }
+  },
+  "name": "drukphoto-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connars/drukphoto-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connars/drukphoto-backend/issues"
+  },
+  "homepage": "https://github.com/connars/drukphoto-backend#readme",
+  "description": ""
 }
