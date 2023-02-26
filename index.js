@@ -2,10 +2,12 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
-import cors from "cors";
+// import cors from "cors";
 const app = express();
-app.use(cors());
+
+// app.use(cors());
 app.use(express.json());
+
 const port = process.env.PORT || 3000;
 const fs = require("fs");
 
@@ -32,7 +34,6 @@ app.post("/upload", upload.array("photos"), function (req, res) {
   const dir = `uploads/${date}/${phone}/`;
 
   fs.mkdirSync(dir, { recursive: true });
-
   const promises = req.files.map((file) => {
     const oldPath = `temp/${file.filename}`;
     const newPath = `${dir}/${file.originalname}`;
