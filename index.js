@@ -2,10 +2,20 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
-// import cors from "cors";
+const cors = require("cors");
 const app = express();
-
-// app.use(cors());
+app.use(cors());
+app.use(function (req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5001");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+});
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
@@ -107,6 +117,11 @@ app.post("/crm-add", async (req, res) => {
   } catch (error) {
     res.status(400).json({ status: 400, message: error.message });
   }
+});
+
+app.get("/get-info", (req, res) => {
+  console.log(req.body);
+  res.status(200).json({ status: 200, message: req.body });
 });
 
 app.listen(port, () => {
