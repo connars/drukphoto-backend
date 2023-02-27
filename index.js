@@ -119,6 +119,11 @@ app.post("/crm-add", async (req, res) => {
   }
 });
 
+app.get("/get-info", (req, res) => {
+  console.log(req.body);
+  res.status(200).json({ status: 200, message: req.body });
+});
+
 app.listen(port, () => {
   console.log(`server start ${port}`);
 });
