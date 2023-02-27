@@ -3,7 +3,9 @@ const path = require("path");
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
+
 const app = express();
+
 app.use(cors());
 app.use(function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5001");
