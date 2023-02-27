@@ -2,11 +2,11 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
-import cors from "cors";
+const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5001");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
@@ -17,6 +17,7 @@ app.use(function (req, res) {
   );
 });
 app.use(express.json());
+
 const port = process.env.PORT || 3000;
 const fs = require("fs");
 
@@ -43,7 +44,6 @@ app.post("/upload", upload.array("photos"), function (req, res) {
   const dir = `uploads/${date}/${phone}/`;
 
   fs.mkdirSync(dir, { recursive: true });
-
   const promises = req.files.map((file) => {
     const oldPath = `temp/${file.filename}`;
     const newPath = `${dir}/${file.originalname}`;
