@@ -14,7 +14,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,6 @@
     "url": "https://github.com/connars/drukphoto-backend/issues"
   },
   "homepage": "https://github.com/connars/drukphoto-backend#readme",
+  "devDependencies": {},
   "description": ""
 }
